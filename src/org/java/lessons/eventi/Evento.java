@@ -13,6 +13,8 @@ public class Evento {
     //COSTRUTTORI
 
     public Evento(String titolo, LocalDate data, int numeroPostiTotale, int numeroPostiPrenotati) {
+        controllaData(data);
+        controllaPostiTotali(numeroPostiTotale);
         this.titolo = titolo;
         this.data = data;
         this.numeroPostiTotale = numeroPostiTotale;
@@ -64,11 +66,12 @@ public class Evento {
 
         //Metodo per la prenotazione dei posti (Public)
             //aggiunge un certo numero di posti prenotati. Se l’evento è già passato o non ha posti disponibili deve sollevare un’eccezione.
-                public int prenotaPosti () {
+                public  int prenotaPosti (int numeroPostiTotale, int numeroPostiPrenotati) {
                     int postiDaPrenotare =0;
                     if (postiDaPrenotare < numeroPostiTotale && data.isAfter(LocalDate.now())) {
                         numeroPostiPrenotati += postiDaPrenotare;
                         numeroPostiTotale -= postiDaPrenotare;
+
                     } else if (data.isBefore(LocalDate.now())) {
                         throw new RuntimeException("Inserisca una data valida!");
                     }
