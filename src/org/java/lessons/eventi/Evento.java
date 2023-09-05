@@ -63,11 +63,33 @@ public class Evento {
             }
 
         //Metodo per la prenotazione dei posti (Public)
-
-
+            //aggiunge un certo numero di posti prenotati. Se l’evento è già passato o non ha posti disponibili deve sollevare un’eccezione.
+                public int prenotaPosti () {
+                    int postiDaPrenotare =0;
+                    if (postiDaPrenotare < numeroPostiTotale && data.isAfter(LocalDate.now())) {
+                        numeroPostiPrenotati += postiDaPrenotare;
+                        numeroPostiTotale -= postiDaPrenotare;
+                    } else if (data.isBefore(LocalDate.now())) {
+                        throw new RuntimeException("Inserisca una data valida!");
+                    }
+                    else if (postiDaPrenotare > numeroPostiTotale) {
+                        throw new RuntimeException("Inserisca un numero minore di: " + numeroPostiTotale);
+                    }
+                    return postiDaPrenotare;
+                }
         //Metodo per la disdetta della prenotazione dei posti (Public)
-
-
+            //riduce di un certo numero i posti prenotati. Se l’evento è già passato o non ci sono prenotazioni deve sollevare un’eccezione.
+                public int desdiciPosti () {
+                    int postiDadisdire = 0;
+                    if (postiDadisdire < numeroPostiPrenotati && data.isAfter(LocalDate.now())) {
+                        numeroPostiPrenotati -= postiDadisdire;
+                        numeroPostiTotale += postiDadisdire;
+                    } else if (data.isBefore(LocalDate.now())) {
+                        throw new RuntimeException("Inserisca una data valida!");
+                    } else if (postiDadisdire > numeroPostiPrenotati) {
+                        throw new RuntimeException("Inserisca un numero minore di: " + numeroPostiPrenotati);
+                    } return desdiciPosti();
+                }
         //Override del metodo toString (Public)
             @Override
             public String toString() {
