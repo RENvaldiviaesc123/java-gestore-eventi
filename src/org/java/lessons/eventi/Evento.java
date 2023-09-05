@@ -31,6 +31,7 @@ public class Evento {
                 return data;
             }
             public void setData(LocalDate data) {
+                controllaData(data);
                 this.data = data;
             }
 
@@ -46,10 +47,20 @@ public class Evento {
 
     //METODI
         //Metodo per il controllo della data inserita
-
+            private void controllaData (LocalDate data) {
+                if (data.isBefore(LocalDate.now())) {
+                    throw  new RuntimeException("La data deve essere uguale o posteriore alla data odierna!");
+                } else if (data == null) {
+                    throw new RuntimeException("Inserisca una data!");
+                }
+            }
 
         //Metodo per il controllo del numero dei posti in totale sia positivo
-
+            private void controllaPostiTotali (int numeroPostiTotale) {
+                if (numeroPostiTotale < 0) {
+                    throw new RuntimeException("Inserisca un numero positivo oppure maggiore di 0!");
+                }
+            }
 
         //Metodo per la prenotazione dei posti (Public)
 
