@@ -48,6 +48,9 @@ public class Evento {
 
 
     //METODI
+            public int getAvailableSeats(){
+                return numeroPostiTotale - numeroPostiPrenotati;
+            }
         //Metodo per il controllo della data inserita
             private void controllaData (LocalDate data) {
                 if (data.isBefore(LocalDate.now())) {
@@ -66,32 +69,41 @@ public class Evento {
 
         //Metodo per la prenotazione dei posti (Public)
             //aggiunge un certo numero di posti prenotati. Se l’evento è già passato o non ha posti disponibili deve sollevare un’eccezione.
-                public  int prenotaPosti (int numeroPostiTotale, int numeroPostiPrenotati) {
-                    int postiDaPrenotare =0;
-                    if (postiDaPrenotare < numeroPostiTotale && data.isAfter(LocalDate.now())) {
-                        numeroPostiPrenotati += postiDaPrenotare;
-                        numeroPostiTotale -= postiDaPrenotare;
+            public void addBookings(int numSeats) throws RuntimeException{
+                // verifico se ho abbastanza posti disponibili
+                if(getAvailableSeats() < numSeats){
+                    throw new RuntimeException("Not enough available seats");
+                }
+                if(data.isBefore(LocalDate.now())) {
+                    throw new RuntimeException("Inserisca una data valida!");
+                }
+                numeroPostiPrenotati += numSeats;
+            }
+            /*public  void prenotaPosti (int postiPrenotazione) {
+                    postiPrenotazione =0;
+                    if (postiPrenotazione < numeroPostiTotale && data.isAfter(LocalDate.now())) {
+                        numeroPostiPrenotati += postiPrenotazione;
+                        numeroPostiTotale -= postiPrenotazione;
 
                     } else if (data.isBefore(LocalDate.now())) {
                         throw new RuntimeException("Inserisca una data valida!");
                     }
-                    else if (postiDaPrenotare > numeroPostiTotale) {
+                    else if (postiPrenotazione > numeroPostiTotale) {
                         throw new RuntimeException("Inserisca un numero minore di: " + numeroPostiTotale);
                     }
-                    return postiDaPrenotare;
-                }
+
+                }*/
         //Metodo per la disdetta della prenotazione dei posti (Public)
             //riduce di un certo numero i posti prenotati. Se l’evento è già passato o non ci sono prenotazioni deve sollevare un’eccezione.
-                public int desdiciPosti () {
+                public void  desdiciPosti (int postiDaDisdire) {
                     int postiDadisdire = 0;
                     if (postiDadisdire < numeroPostiPrenotati && data.isAfter(LocalDate.now())) {
-                        numeroPostiPrenotati -= postiDadisdire;
-                        numeroPostiTotale += postiDadisdire;
+                        numeroPostiPrenotati -= postiDaDisdire;
                     } else if (data.isBefore(LocalDate.now())) {
                         throw new RuntimeException("Inserisca una data valida!");
                     } else if (postiDadisdire > numeroPostiPrenotati) {
                         throw new RuntimeException("Inserisca un numero minore di: " + numeroPostiPrenotati);
-                    } return desdiciPosti();
+                    }
                 }
         //Override del metodo toString (Public)
             @Override

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8db21eea-b654-4e13-82f2-173ddbf9f284" name="Changes" comment="Main to finish">
+    <list default="true" id="8db21eea-b654-4e13-82f2-173ddbf9f284" name="Changes" comment="Fixed main part">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/java/lessons/eventi/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/lessons/eventi/Evento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/java/lessons/eventi/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/java/lessons/eventi/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693912108829</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed main part">
+      <option name="closed" value="true" />
+      <created>1693992382588</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693992382588</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -94,6 +103,7 @@
     <MESSAGE value="Added override toString, control date and control sits to Evento Class." />
     <MESSAGE value="Added prenotaPosti and desdiciPosti methods to Evento class." />
     <MESSAGE value="Main to finish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main to finish" />
+    <MESSAGE value="Fixed main part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed main part" />
   </component>
 </project>

@@ -33,9 +33,24 @@ public class Main {
                             System.out.println("Generic error!");
                             }
                     } while (eventoUno == null);
-
                 //Stampiamo l'evento
                 System.out.println(eventoUno);
+
+                //Proviamo a fare una prenotazione
+                System.out.println("Quanti posti vuole prenotare? " );
+                int numSeats = scan.nextInt();
+                eventoUno.addBookings(numSeats);
+                System.out.println("Posti rimasti: " + eventoUno.getAvailableSeats());
+
+                //Proviamo a fare una cancellazione di prenotazione
+                System.out.println("Quante prenotazioni vuole disdire? ");
+                int postiDaDisdire = scan.nextInt();
+                eventoUno.desdiciPosti(postiDaDisdire);
+                System.out.println("Numero aggiornato di prenotazioni: " + eventoUno.getAvailableSeats());
+
+                //Stampiamo il numero totale di prenotazioni e posti disponibili
+                System.out.println("Posti Disponibili: " + eventoUno.getAvailableSeats());
+                System.out.println("Posti prenotati: " + eventoUno.getNumeroPostiPrenotati());
         //2. Dopo che l’evento è stato istanziato, chiedere all’utente se e quante prenotazioni vuole fare e provare ad effettuarle, implementando opportuni controlli e gestendo eventuali eccezioni.
         //3. Stampare a video il numero di posti prenotati e quelli disponibili
         //4. Chiedere all’utente se e quanti posti vuole disdire
